@@ -29,7 +29,7 @@ $dir = dirname(__FILE__) . '/';
 
 $wgAutoloadClasses['SpecialBrowserIDLogin'] = $dir . 'SpecialBrowserIDLogin.php';
 $wgAutoloadClasses['BrowserIDHooks'] = $dir . 'browserid_mediawiki.hooks.php';
-$wgAutoloadClasses['BrowserIDLogin'] = $dir . 'browserid_mediawiki.login.php';
+$wgAutoloadClasses['BrowserIDVerify'] = $dir . 'browserid_mediawiki.login.php';
 $wgSpecialPages['BrowserIDLogin'] = 'SpecialBrowserIDLogin';
 
 $wgHooks['BeforePageDisplay'][] = 'BrowserIDHooks::BeforePageDisplay';
@@ -38,6 +38,6 @@ $wgShowExceptionDetails = true;
 
 $wgAjaxExportList[] = 'verifyAssertion';
 function verifyAssertion($assertion) {
-  return BrowserIDLogin::Login($assertion); 
+  return BrowserIDVerify::login('localhost', $assertion); 
 }
 ?>
