@@ -4,7 +4,7 @@ Class BrowserIDHooks {
     global $wgScriptPath;
     $out->addScriptFile( "https://browserid.org/include.js" );
     
-    $out->addScriptFile( "$wgScriptPath/extensions/browserid_mediawiki/scripts/login.js" );
+    $out->addScriptFile( "{$wgScriptPath}/extensions/browserid_mediawiki/scripts/login.js" );
     return true;
   }
 }
